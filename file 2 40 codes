@@ -1,0 +1,356 @@
+# C++ Codes File (1–40)
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+// 1. Hello World
+void code1() {
+    cout << "Hello World\n";
+}
+
+// 2. Add Two Numbers
+void code2() {
+    int a = 10, b = 20;
+    cout << "Sum = " << a + b << endl;
+}
+
+// 3. Take Input and Print
+void code3() {
+    int num;
+    cin >> num;
+    cout << "You entered: " << num << endl;
+}
+
+// 4. Swap Two Numbers
+void code4() {
+    int a = 5, b = 10, temp;
+    temp = a;
+    a = b;
+    b = temp;
+    cout << "a = " << a << ", b = " << b << endl;
+}
+
+// 5. ASCII Value
+void code5() {
+    char ch = 'A';
+    cout << "ASCII Value = " << int(ch) << endl;
+}
+
+// 6. Area of Circle
+void code6() {
+    float r = 5;
+    cout << "Area = " << 3.14 * r * r << endl;
+}
+
+// 7. Simple Interest
+void code7() {
+    float p = 1000, r = 5, t = 2;
+    cout << "Simple Interest = " << (p * r * t) / 100 << endl;
+}
+
+// 8. Celsius to Fahrenheit
+void code8() {
+    float c = 37;
+    cout << "Fahrenheit = " << (c * 9 / 5) + 32 << endl;
+}
+
+// 9. Fahrenheit to Celsius
+void code9() {
+    float f = 98.6;
+    cout << "Celsius = " << (f - 32) * 5 / 9 << endl;
+}
+
+// 10. Square and Cube
+void code10() {
+    int n = 4;
+    cout << "Square = " << n * n << "\nCube = " << n * n * n << endl;
+}
+
+// 11. Even or Odd
+void code11() {
+    int n;
+    cin >> n;
+    if (n % 2 == 0) cout << "Even\n";
+    else cout << "Odd\n";
+}
+
+// 12. Largest of Two
+void code12() {
+    int a = 15, b = 25;
+    cout << ((a > b) ? a : b) << " is greater\n";
+}
+
+// 13. Positive or Negative
+void code13() {
+    int n;
+    cin >> n;
+    if (n >= 0) cout << "Positive\n";
+    else cout << "Negative\n";
+}
+
+// 14. Largest of Three
+void code14() {
+    int a = 10, b = 20, c = 15;
+    if (a > b && a > c) cout << a;
+    else if (b > c) cout << b;
+    else cout << c;
+    cout << endl;
+}
+
+// 15. Leap Year
+void code15() {
+    int year;
+    cin >> year;
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+        cout << "Leap Year\n";
+    else
+        cout << "Not Leap Year\n";
+}
+
+// 16. Percentage
+void code16() {
+    float m1 = 80, m2 = 75, m3 = 90;
+    cout << "Percentage = " << (m1 + m2 + m3) / 3 << endl;
+}
+
+// 17. Quotient and Remainder
+void code17() {
+    int a = 17, b = 5;
+    cout << "Quotient = " << a / b << "\nRemainder = " << a % b << endl;
+}
+
+// 18. Vowel or Consonant
+void code18() {
+    char ch;
+    cin >> ch;
+    if (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||
+        ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')
+        cout << "Vowel\n";
+    else
+        cout << "Consonant\n";
+}
+
+// 19. Size of Data Types
+void code19() {
+    cout << "int: " << sizeof(int) << endl;
+    cout << "float: " << sizeof(float) << endl;
+    cout << "char: " << sizeof(char) << endl;
+}
+
+// 20. Calculator
+void code20() {
+    int a = 10, b = 5;
+    char op = '+';
+    switch(op) {
+        case '+': cout << a + b; break;
+        case '-': cout << a - b; break;
+        case '*': cout << a * b; break;
+        case '/': cout << a / b; break;
+        default: cout << "Invalid";
+    }
+    cout << endl;
+}
+
+// 21. Prime Number
+void code21() {
+    int n, count = 0;
+    cin >> n;
+    for(int i = 1; i <= n; i++) if(n % i == 0) count++;
+    cout << (count == 2 ? "Prime" : "Not Prime") << endl;
+}
+
+// 22. Factorial
+void code22() {
+    int n;
+    long long fact = 1;
+    cin >> n;
+    for(int i = 1; i <= n; i++) fact *= i;
+    cout << "Factorial = " << fact << endl;
+}
+
+// 23. Multiplication Table
+void code23() {
+    int n;
+    cin >> n;
+    for(int i = 1; i <= 10; i++)
+        cout << n << " x " << i << " = " << n * i << endl;
+}
+
+// 24. Sum of Natural Numbers
+void code24() {
+    int n, sum = 0;
+    cin >> n;
+    for(int i = 1; i <= n; i++) sum += i;
+    cout << "Sum = " << sum << endl;
+}
+
+// 25. Reverse Number
+void code25() {
+    int n, rev = 0;
+    cin >> n;
+    while(n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    cout << "Reverse = " << rev << endl;
+}
+
+// 26. Palindrome Number
+void code26() {
+    int n, temp, rev = 0;
+    cin >> n;
+    temp = n;
+    while(n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    cout << (temp == rev ? "Palindrome" : "Not Palindrome") << endl;
+}
+
+// 27. Armstrong Number
+void code27() {
+    int n, temp, sum = 0, rem;
+    cin >> n;
+    temp = n;
+    while(n != 0) {
+        rem = n % 10;
+        sum += rem * rem * rem;
+        n /= 10;
+    }
+    cout << (temp == sum ? "Armstrong" : "Not Armstrong") << endl;
+}
+
+// 28. Fibonacci Series
+void code28() {
+    int n, a = 0, b = 1, c;
+    cin >> n;
+    cout << a << " " << b << " ";
+    for(int i = 3; i <= n; i++) {
+        c = a + b;
+        cout << c << " ";
+        a = b;
+        b = c;
+    }
+    cout << endl;
+}
+
+// 29. Count Digits
+void code29() {
+    int n, count = 0;
+    cin >> n;
+    while(n != 0) {
+        n /= 10;
+        count++;
+    }
+    cout << "Digits = " << count << endl;
+}
+
+// 30. Sum of Digits
+void code30() {
+    int n, sum = 0;
+    cin >> n;
+    while(n != 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+    cout << "Sum = " << sum << endl;
+}
+
+// 31. Product of Digits
+void code31() {
+    int n, product = 1;
+    cin >> n;
+    while(n != 0) {
+        product *= n % 10;
+        n /= 10;
+    }
+    cout << "Product = " << product << endl;
+}
+
+// 32. GCD
+void code32() {
+    int a, b, gcd = 1;
+    cin >> a >> b;
+    for(int i = 1; i <= a && i <= b; i++)
+        if(a % i == 0 && b % i == 0) gcd = i;
+    cout << "GCD = " << gcd << endl;
+}
+
+// 33. LCM
+void code33() {
+    int a, b;
+    cin >> a >> b;
+    int max = (a > b) ? a : b;
+    while(true) {
+        if(max % a == 0 && max % b == 0) {
+            cout << "LCM = " << max << endl;
+            break;
+        }
+        max++;
+    }
+}
+
+// 34. Even Numbers 1 to N
+void code34() {
+    int n;
+    cin >> n;
+    for(int i = 2; i <= n; i += 2) cout << i << " ";
+    cout << endl;
+}
+
+// 35. Odd Numbers 1 to N
+void code35() {
+    int n;
+    cin >> n;
+    for(int i = 1; i <= n; i += 2) cout << i << " ";
+    cout << endl;
+}
+
+// 36. Numbers 1 to N
+void code36() {
+    int n;
+    cin >> n;
+    for(int i = 1; i <= n; i++) cout << i << " ";
+    cout << endl;
+}
+
+// 37. Numbers N to 1
+void code37() {
+    int n;
+    cin >> n;
+    for(int i = n; i >= 1; i--) cout << i << " ";
+    cout << endl;
+}
+
+// 38. Sum of Even Numbers
+void code38() {
+    int n, sum = 0;
+    cin >> n;
+    for(int i = 2; i <= n; i += 2) sum += i;
+    cout << "Sum = " << sum << endl;
+}
+
+// 39. Sum of Odd Numbers
+void code39() {
+    int n, sum = 0;
+    cin >> n;
+    for(int i = 1; i <= n; i += 2) sum += i;
+    cout << "Sum = " << sum << endl;
+}
+
+// 40. Power of Number
+void code40() {
+    int base, exp, result = 1;
+    cin >> base >> exp;
+    for(int i = 1; i <= exp; i++) result *= base;
+    cout << "Power = " << result << endl;
+}
+
+int main() {
+    // Call any function here
+    code1();
+    return 0;
+}
+```
