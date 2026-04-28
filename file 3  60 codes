@@ -1,0 +1,238 @@
+# C++ Codes File (41–60)
+
+```cpp id="n4r8qa"
+#include <iostream>
+using namespace std;
+
+// 41. Print Star Pattern
+void code41() {
+    int n = 5;
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= i; j++)
+            cout << "* ";
+        cout << endl;
+    }
+}
+
+// 42. Inverted Star Pattern
+void code42() {
+    int n = 5;
+    for(int i = n; i >= 1; i--) {
+        for(int j = 1; j <= i; j++)
+            cout << "* ";
+        cout << endl;
+    }
+}
+
+// 43. Number Triangle Pattern
+void code43() {
+    int n = 5;
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= i; j++)
+            cout << j << " ";
+        cout << endl;
+    }
+}
+
+// 44. Floyd’s Triangle
+void code44() {
+    int n = 5, num = 1;
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= i; j++)
+            cout << num++ << " ";
+        cout << endl;
+    }
+}
+
+// 45. Right Triangle Number Pattern
+void code45() {
+    int n = 5;
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= i; j++)
+            cout << i << " ";
+        cout << endl;
+    }
+}
+
+// 46. Multiplication Pattern
+void code46() {
+    int n = 5;
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= 10; j++)
+            cout << i * j << "\t";
+        cout << endl;
+    }
+}
+
+// 47. Reverse Number Pattern
+void code47() {
+    int n = 5;
+    for(int i = n; i >= 1; i--) {
+        for(int j = i; j >= 1; j--)
+            cout << j << " ";
+        cout << endl;
+    }
+}
+
+// 48. Alphabet Pattern
+void code48() {
+    int n = 5;
+    char ch = 'A';
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= i; j++)
+            cout << ch++ << " ";
+        cout << endl;
+    }
+}
+
+// 49. Hollow Square Pattern
+void code49() {
+    int n = 5;
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= n; j++) {
+            if(i == 1 || i == n || j == 1 || j == n)
+                cout << "* ";
+            else
+                cout << "  ";
+        }
+        cout << endl;
+    }
+}
+
+// 50. Pyramid Pattern
+void code50() {
+    int n = 5;
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= n - i; j++)
+            cout << " ";
+        for(int k = 1; k <= (2 * i - 1); k++)
+            cout << "*";
+        cout << endl;
+    }
+}
+
+// 51. Input and Print Array
+void code51() {
+    int arr[5];
+    for(int i = 0; i < 5; i++)
+        cin >> arr[i];
+    for(int i = 0; i < 5; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+// 52. Sum of Array
+void code52() {
+    int arr[5] = {1, 2, 3, 4, 5}, sum = 0;
+    for(int i = 0; i < 5; i++)
+        sum += arr[i];
+    cout << "Sum = " << sum << endl;
+}
+
+// 53. Largest Element in Array
+void code53() {
+    int arr[5] = {10, 25, 8, 40, 15};
+    int max = arr[0];
+    for(int i = 1; i < 5; i++)
+        if(arr[i] > max) max = arr[i];
+    cout << "Largest = " << max << endl;
+}
+
+// 54. Smallest Element in Array
+void code54() {
+    int arr[5] = {10, 25, 8, 40, 15};
+    int min = arr[0];
+    for(int i = 1; i < 5; i++)
+        if(arr[i] < min) min = arr[i];
+    cout << "Smallest = " << min << endl;
+}
+
+// 55. Search Element in Array
+void code55() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int key, found = 0;
+    cin >> key;
+    for(int i = 0; i < 5; i++) {
+        if(arr[i] == key) {
+            found = 1;
+            break;
+        }
+    }
+    cout << (found ? "Found" : "Not Found") << endl;
+}
+
+// 56. Reverse Array
+void code56() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    for(int i = 4; i >= 0; i--)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+// 57. Sort Array Ascending
+void code57() {
+    int arr[5] = {5, 2, 8, 1, 3};
+    for(int i = 0; i < 5; i++) {
+        for(int j = i + 1; j < 5; j++) {
+            if(arr[i] > arr[j]) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    for(int i = 0; i < 5; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+// 58. Sort Array Descending
+void code58() {
+    int arr[5] = {5, 2, 8, 1, 3};
+    for(int i = 0; i < 5; i++) {
+        for(int j = i + 1; j < 5; j++) {
+            if(arr[i] < arr[j]) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    for(int i = 0; i < 5; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+// 59. Copy Array
+void code59() {
+    int arr1[5] = {1, 2, 3, 4, 5}, arr2[5];
+    for(int i = 0; i < 5; i++)
+        arr2[i] = arr1[i];
+    for(int i = 0; i < 5; i++)
+        cout << arr2[i] << " ";
+    cout << endl;
+}
+
+// 60. Merge Two Arrays
+void code60() {
+    int arr1[3] = {1, 2, 3};
+    int arr2[3] = {4, 5, 6};
+    int arr3[6];
+
+    for(int i = 0; i < 3; i++)
+        arr3[i] = arr1[i];
+
+    for(int i = 0; i < 3; i++)
+        arr3[i + 3] = arr2[i];
+
+    for(int i = 0; i < 6; i++)
+        cout << arr3[i] << " ";
+    cout << endl;
+}
+
+int main() {
+    // Call any function here
+    code41();
+    return 0;
+}
+```
