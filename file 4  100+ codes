@@ -1,0 +1,2273 @@
+# C++ Codes File (61–80)
+
+```cpp id="r8m2xp"
+#include <iostream>
+#include <string>
+using namespace std;
+
+// 61. Count Even and Odd Elements
+void code61() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int even = 0, odd = 0;
+
+    for(int i = 0; i < 5; i++) {
+        if(arr[i] % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
+
+    cout << "Even = " << even << "\nOdd = " << odd << endl;
+}
+
+// 62. Second Largest Element
+void code62() {
+    int arr[5] = {10, 25, 8, 40, 15};
+    int first = arr[0], second = arr[0];
+
+    for(int i = 0; i < 5; i++) {
+        if(arr[i] > first) {
+            second = first;
+            first = arr[i];
+        } else if(arr[i] > second && arr[i] != first) {
+            second = arr[i];
+        }
+    }
+
+    cout << "Second Largest = " << second << endl;
+}
+
+// 63. Remove Duplicate Elements
+void code63() {
+    int arr[6] = {1, 2, 2, 3, 4, 4};
+
+    for(int i = 0; i < 6; i++) {
+        bool duplicate = false;
+        for(int j = 0; j < i; j++) {
+            if(arr[i] == arr[j]) {
+                duplicate = true;
+                break;
+            }
+        }
+        if(!duplicate)
+            cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+// 64. Linear Search
+void code64() {
+    int arr[5] = {5, 10, 15, 20, 25};
+    int key, found = 0;
+    cin >> key;
+
+    for(int i = 0; i < 5; i++) {
+        if(arr[i] == key) {
+            found = 1;
+            break;
+        }
+    }
+
+    cout << (found ? "Found" : "Not Found") << endl;
+}
+
+// 65. Binary Search
+void code65() {
+    int arr[5] = {5, 10, 15, 20, 25};
+    int key;
+    cin >> key;
+
+    int low = 0, high = 4, mid;
+    bool found = false;
+
+    while(low <= high) {
+        mid = (low + high) / 2;
+        if(arr[mid] == key) {
+            found = true;
+            break;
+        } else if(arr[mid] < key) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+
+    cout << (found ? "Found" : "Not Found") << endl;
+}
+
+// 66. Find String Length
+void code66() {
+    string str = "Hello";
+    cout << "Length = " << str.length() << endl;
+}
+
+// 67. Reverse String
+void code67() {
+    string str = "Hello";
+    for(int i = str.length() - 1; i >= 0; i--)
+        cout << str[i];
+    cout << endl;
+}
+
+// 68. Palindrome String
+void code68() {
+    string str = "madam";
+    string rev = "";
+
+    for(int i = str.length() - 1; i >= 0; i--)
+        rev += str[i];
+
+    if(str == rev)
+        cout << "Palindrome";
+    else
+        cout << "Not Palindrome";
+
+    cout << endl;
+}
+
+// 69. Count Vowels in String
+void code69() {
+    string str = "education";
+    int count = 0;
+
+    for(int i = 0; i < str.length(); i++) {
+        char ch = tolower(str[i]);
+        if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+            count++;
+    }
+
+    cout << "Vowels = " << count << endl;
+}
+
+// 70. Count Words in String
+void code70() {
+    string str = "I love C++ programming";
+    int count = 1;
+
+    for(int i = 0; i < str.length(); i++) {
+        if(str[i] == ' ')
+            count++;
+    }
+
+    cout << "Words = " << count << endl;
+}
+
+// 71. Compare Two Strings
+void code71() {
+    string a = "hello", b = "hello";
+
+    if(a == b)
+        cout << "Equal";
+    else
+        cout << "Not Equal";
+
+    cout << endl;
+}
+
+// 72. Concatenate Strings
+void code72() {
+    string a = "Hello ", b = "World";
+    cout << a + b << endl;
+}
+
+// 73. Convert Lowercase to Uppercase
+void code73() {
+    string str = "hello";
+
+    for(int i = 0; i < str.length(); i++)
+        str[i] = toupper(str[i]);
+
+    cout << str << endl;
+}
+
+// 74. Convert Uppercase to Lowercase
+void code74() {
+    string str = "HELLO";
+
+    for(int i = 0; i < str.length(); i++)
+        str[i] = tolower(str[i]);
+
+    cout << str << endl;
+}
+
+// 75. Remove Spaces from String
+void code75() {
+    string str = "I love C++";
+    string result = "";
+
+    for(int i = 0; i < str.length(); i++) {
+        if(str[i] != ' ')
+            result += str[i];
+    }
+
+    cout << result << endl;
+}
+
+// 76. Function to Add Two Numbers
+int add(int a, int b) {
+    return a + b;
+}
+void code76() {
+    cout << "Sum = " << add(10, 20) << endl;
+}
+
+// 77. Function to Find Square
+int square(int n) {
+    return n * n;
+}
+void code77() {
+    cout << "Square = " << square(6) << endl;
+}
+
+// 78. Function to Check Even/Odd
+void checkEvenOdd(int n) {
+    if(n % 2 == 0) cout << "Even";
+    else cout << "Odd";
+}
+void code78() {
+    checkEvenOdd(7);
+    cout << endl;
+}
+
+// 79. Function to Find Factorial
+int fact(int n) {
+    int f = 1;
+    for(int i = 1; i <= n; i++)
+        f *= i;
+    return f;
+}
+void code79() {
+    cout << "Factorial = " << fact(5) << endl;
+}
+
+// 80. Function to Find Maximum
+int maximum(int a, int b) {
+    return (a > b) ? a : b;
+}
+void code80() {
+    cout << "Maximum = " << maximum(15, 30) << endl;
+}
+
+int main() {
+    // Call any function here
+    code61();
+    return 0;
+}
+```
+# C++ Codes File (81–100)
+
+```cpp id="q7n4lm"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// 81. Function to Find Minimum
+int minimum(int a, int b) {
+    return (a < b) ? a : b;
+}
+void code81() {
+    cout << "Minimum = " << minimum(15, 30) << endl;
+}
+
+// 82. Function to Check Prime
+bool isPrime(int n) {
+    if(n < 2) return false;
+    for(int i = 2; i < n; i++) {
+        if(n % i == 0) return false;
+    }
+    return true;
+}
+void code82() {
+    cout << (isPrime(7) ? "Prime" : "Not Prime") << endl;
+}
+
+// 83. Function to Reverse Number
+int reverseNum(int n) {
+    int rev = 0;
+    while(n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    return rev;
+}
+void code83() {
+    cout << "Reverse = " << reverseNum(1234) << endl;
+}
+
+// 84. Recursive Factorial
+int factorial(int n) {
+    if(n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+}
+void code84() {
+    cout << "Factorial = " << factorial(5) << endl;
+}
+
+// 85. Recursive Fibonacci
+int fibonacci(int n) {
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+void code85() {
+    for(int i = 0; i < 7; i++)
+        cout << fibonacci(i) << " ";
+    cout << endl;
+}
+
+// 86. Pointer Example
+void code86() {
+    int x = 10;
+    int *ptr = &x;
+
+    cout << "Value = " << x << endl;
+    cout << "Address = " << ptr << endl;
+    cout << "Using Pointer = " << *ptr << endl;
+}
+
+// 87. Pointer Addition
+void code87() {
+    int a = 10, b = 20;
+    int *p1 = &a, *p2 = &b;
+
+    cout << "Sum = " << *p1 + *p2 << endl;
+}
+
+// 88. Swap Using Pointers
+void swapNum(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void code88() {
+    int x = 5, y = 10;
+    swapNum(&x, &y);
+    cout << "x = " << x << ", y = " << y << endl;
+}
+
+// 89. Array Using Pointer
+void code89() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    for(int i = 0; i < 5; i++)
+        cout << *(ptr + i) << " ";
+    cout << endl;
+}
+
+// 90. Dynamic Memory Allocation
+void code90() {
+    int *ptr = new int;
+    *ptr = 25;
+
+    cout << "Value = " << *ptr << endl;
+    delete ptr;
+}
+
+// 91. Structure Example
+struct Student {
+    int id;
+    string name;
+};
+
+void code91() {
+    Student s;
+    s.id = 101;
+    s.name = "Ankit";
+
+    cout << "ID = " << s.id << endl;
+    cout << "Name = " << s.name << endl;
+}
+
+// 92. Array of Structures
+struct Book {
+    int id;
+    string title;
+};
+
+void code92() {
+    Book b[2];
+
+    b[0].id = 1;
+    b[0].title = "C++";
+
+    b[1].id = 2;
+    b[1].title = "DSA";
+
+    for(int i = 0; i < 2; i++) {
+        cout << b[i].id << " " << b[i].title << endl;
+    }
+}
+
+// 93. Nested Structure
+struct Address {
+    string city;
+};
+
+struct Person {
+    string name;
+    Address addr;
+};
+
+void code93() {
+    Person p;
+    p.name = "Ankit";
+    p.addr.city = "Hisar";
+
+    cout << p.name << " lives in " << p.addr.city << endl;
+}
+
+// 94. Structure with Function
+struct Rectangle {
+    int length, width;
+};
+
+int area(Rectangle r) {
+    return r.length * r.width;
+}
+
+void code94() {
+    Rectangle r = {5, 4};
+    cout << "Area = " << area(r) << endl;
+}
+
+// 95. Pointer to Structure
+struct Employee {
+    int id;
+    string name;
+};
+
+void code95() {
+    Employee e = {1, "Rahul"};
+    Employee *ptr = &e;
+
+    cout << ptr->id << " " << ptr->name << endl;
+}
+
+// 96. Write to File
+void code96() {
+    ofstream file("demo.txt");
+    file << "Hello File";
+    file.close();
+    cout << "Data written to file" << endl;
+}
+
+// 97. Read from File
+void code97() {
+    string data;
+    ifstream file("demo.txt");
+
+    getline(file, data);
+    cout << data << endl;
+
+    file.close();
+}
+
+// 98. Append to File
+void code98() {
+    ofstream file("demo.txt", ios::app);
+    file << "\nAppended Text";
+    file.close();
+
+    cout << "Data appended" << endl;
+}
+
+// 99. Count Characters in File
+void code99() {
+    ifstream file("demo.txt");
+    char ch;
+    int count = 0;
+
+    while(file.get(ch))
+        count++;
+
+    cout << "Characters = " << count << endl;
+    file.close();
+}
+
+// 100. Copy File Content
+void code100() {
+    ifstream source("demo.txt");
+    ofstream dest("copy.txt");
+    string line;
+
+    while(getline(source, line))
+        dest << line << endl;
+
+    source.close();
+    dest.close();
+
+    cout << "File copied" << endl;
+}
+
+int main() {
+    // Call any function here
+    code81();
+    return 0;
+}
+```
+# C++ Codes File (81–100)
+
+```cpp id="q7n4lm"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// 81. Function to Find Minimum
+int minimum(int a, int b) {
+    return (a < b) ? a : b;
+}
+void code81() {
+    cout << "Minimum = " << minimum(15, 30) << endl;
+}
+
+// 82. Function to Check Prime
+bool isPrime(int n) {
+    if(n < 2) return false;
+    for(int i = 2; i < n; i++) {
+        if(n % i == 0) return false;
+    }
+    return true;
+}
+void code82() {
+    cout << (isPrime(7) ? "Prime" : "Not Prime") << endl;
+}
+
+// 83. Function to Reverse Number
+int reverseNum(int n) {
+    int rev = 0;
+    while(n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    return rev;
+}
+void code83() {
+    cout << "Reverse = " << reverseNum(1234) << endl;
+}
+
+// 84. Recursive Factorial
+int factorial(int n) {
+    if(n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+}
+void code84() {
+    cout << "Factorial = " << factorial(5) << endl;
+}
+
+// 85. Recursive Fibonacci
+int fibonacci(int n) {
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+void code85() {
+    for(int i = 0; i < 7; i++)
+        cout << fibonacci(i) << " ";
+    cout << endl;
+}
+
+// 86. Pointer Example
+void code86() {
+    int x = 10;
+    int *ptr = &x;
+
+    cout << "Value = " << x << endl;
+    cout << "Address = " << ptr << endl;
+    cout << "Using Pointer = " << *ptr << endl;
+}
+
+// 87. Pointer Addition
+void code87() {
+    int a = 10, b = 20;
+    int *p1 = &a, *p2 = &b;
+
+    cout << "Sum = " << *p1 + *p2 << endl;
+}
+
+// 88. Swap Using Pointers
+void swapNum(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void code88() {
+    int x = 5, y = 10;
+    swapNum(&x, &y);
+    cout << "x = " << x << ", y = " << y << endl;
+}
+
+// 89. Array Using Pointer
+void code89() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    for(int i = 0; i < 5; i++)
+        cout << *(ptr + i) << " ";
+    cout << endl;
+}
+
+// 90. Dynamic Memory Allocation
+void code90() {
+    int *ptr = new int;
+    *ptr = 25;
+
+    cout << "Value = " << *ptr << endl;
+    delete ptr;
+}
+
+// 91. Structure Example
+struct Student {
+    int id;
+    string name;
+};
+
+void code91() {
+    Student s;
+    s.id = 101;
+    s.name = "Ankit";
+
+    cout << "ID = " << s.id << endl;
+    cout << "Name = " << s.name << endl;
+}
+
+// 92. Array of Structures
+struct Book {
+    int id;
+    string title;
+};
+
+void code92() {
+    Book b[2];
+
+    b[0].id = 1;
+    b[0].title = "C++";
+
+    b[1].id = 2;
+    b[1].title = "DSA";
+
+    for(int i = 0; i < 2; i++) {
+        cout << b[i].id << " " << b[i].title << endl;
+    }
+}
+
+// 93. Nested Structure
+struct Address {
+    string city;
+};
+
+struct Person {
+    string name;
+    Address addr;
+};
+
+void code93() {
+    Person p;
+    p.name = "Ankit";
+    p.addr.city = "Hisar";
+
+    cout << p.name << " lives in " << p.addr.city << endl;
+}
+
+// 94. Structure with Function
+struct Rectangle {
+    int length, width;
+};
+
+int area(Rectangle r) {
+    return r.length * r.width;
+}
+
+void code94() {
+    Rectangle r = {5, 4};
+    cout << "Area = " << area(r) << endl;
+}
+
+// 95. Pointer to Structure
+struct Employee {
+    int id;
+    string name;
+};
+
+void code95() {
+    Employee e = {1, "Rahul"};
+    Employee *ptr = &e;
+
+    cout << ptr->id << " " << ptr->name << endl;
+}
+
+// 96. Write to File
+void code96() {
+    ofstream file("demo.txt");
+    file << "Hello File";
+    file.close();
+    cout << "Data written to file" << endl;
+}
+
+// 97. Read from File
+void code97() {
+    string data;
+    ifstream file("demo.txt");
+
+    getline(file, data);
+    cout << data << endl;
+
+    file.close();
+}
+
+// 98. Append to File
+void code98() {
+    ofstream file("demo.txt", ios::app);
+    file << "\nAppended Text";
+    file.close();
+
+    cout << "Data appended" << endl;
+}
+
+// 99. Count Characters in File
+void code99() {
+    ifstream file("demo.txt");
+    char ch;
+    int count = 0;
+
+    while(file.get(ch))
+        count++;
+
+    cout << "Characters = " << count << endl;
+    file.close();
+}
+
+// 100. Copy File Content
+void code100() {
+    ifstream source("demo.txt");
+    ofstream dest("copy.txt");
+    string line;
+
+    while(getline(source, line))
+        dest << line << endl;
+
+    source.close();
+    dest.close();
+
+    cout << "File copied" << endl;
+}
+
+int main() {
+    // Call any function here
+    code81();
+    return 0;
+}
+```
+# C++ Codes File (81–100)
+
+```cpp id="q7n4lm"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// 81. Function to Find Minimum
+int minimum(int a, int b) {
+    return (a < b) ? a : b;
+}
+void code81() {
+    cout << "Minimum = " << minimum(15, 30) << endl;
+}
+
+// 82. Function to Check Prime
+bool isPrime(int n) {
+    if(n < 2) return false;
+    for(int i = 2; i < n; i++) {
+        if(n % i == 0) return false;
+    }
+    return true;
+}
+void code82() {
+    cout << (isPrime(7) ? "Prime" : "Not Prime") << endl;
+}
+
+// 83. Function to Reverse Number
+int reverseNum(int n) {
+    int rev = 0;
+    while(n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    return rev;
+}
+void code83() {
+    cout << "Reverse = " << reverseNum(1234) << endl;
+}
+
+// 84. Recursive Factorial
+int factorial(int n) {
+    if(n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+}
+void code84() {
+    cout << "Factorial = " << factorial(5) << endl;
+}
+
+// 85. Recursive Fibonacci
+int fibonacci(int n) {
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+void code85() {
+    for(int i = 0; i < 7; i++)
+        cout << fibonacci(i) << " ";
+    cout << endl;
+}
+
+// 86. Pointer Example
+void code86() {
+    int x = 10;
+    int *ptr = &x;
+
+    cout << "Value = " << x << endl;
+    cout << "Address = " << ptr << endl;
+    cout << "Using Pointer = " << *ptr << endl;
+}
+
+// 87. Pointer Addition
+void code87() {
+    int a = 10, b = 20;
+    int *p1 = &a, *p2 = &b;
+
+    cout << "Sum = " << *p1 + *p2 << endl;
+}
+
+// 88. Swap Using Pointers
+void swapNum(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void code88() {
+    int x = 5, y = 10;
+    swapNum(&x, &y);
+    cout << "x = " << x << ", y = " << y << endl;
+}
+
+// 89. Array Using Pointer
+void code89() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    for(int i = 0; i < 5; i++)
+        cout << *(ptr + i) << " ";
+    cout << endl;
+}
+
+// 90. Dynamic Memory Allocation
+void code90() {
+    int *ptr = new int;
+    *ptr = 25;
+
+    cout << "Value = " << *ptr << endl;
+    delete ptr;
+}
+
+// 91. Structure Example
+struct Student {
+    int id;
+    string name;
+};
+
+void code91() {
+    Student s;
+    s.id = 101;
+    s.name = "Ankit";
+
+    cout << "ID = " << s.id << endl;
+    cout << "Name = " << s.name << endl;
+}
+
+// 92. Array of Structures
+struct Book {
+    int id;
+    string title;
+};
+
+void code92() {
+    Book b[2];
+
+    b[0].id = 1;
+    b[0].title = "C++";
+
+    b[1].id = 2;
+    b[1].title = "DSA";
+
+    for(int i = 0; i < 2; i++) {
+        cout << b[i].id << " " << b[i].title << endl;
+    }
+}
+
+// 93. Nested Structure
+struct Address {
+    string city;
+};
+
+struct Person {
+    string name;
+    Address addr;
+};
+
+void code93() {
+    Person p;
+    p.name = "Ankit";
+    p.addr.city = "Hisar";
+
+    cout << p.name << " lives in " << p.addr.city << endl;
+}
+
+// 94. Structure with Function
+struct Rectangle {
+    int length, width;
+};
+
+int area(Rectangle r) {
+    return r.length * r.width;
+}
+
+void code94() {
+    Rectangle r = {5, 4};
+    cout << "Area = " << area(r) << endl;
+}
+
+// 95. Pointer to Structure
+struct Employee {
+    int id;
+    string name;
+};
+
+void code95() {
+    Employee e = {1, "Rahul"};
+    Employee *ptr = &e;
+
+    cout << ptr->id << " " << ptr->name << endl;
+}
+
+// 96. Write to File
+void code96() {
+    ofstream file("demo.txt");
+    file << "Hello File";
+    file.close();
+    cout << "Data written to file" << endl;
+}
+
+// 97. Read from File
+void code97() {
+    string data;
+    ifstream file("demo.txt");
+
+    getline(file, data);
+    cout << data << endl;
+
+    file.close();
+}
+
+// 98. Append to File
+void code98() {
+    ofstream file("demo.txt", ios::app);
+    file << "\nAppended Text";
+    file.close();
+
+    cout << "Data appended" << endl;
+}
+
+// 99. Count Characters in File
+void code99() {
+    ifstream file("demo.txt");
+    char ch;
+    int count = 0;
+
+    while(file.get(ch))
+        count++;
+
+    cout << "Characters = " << count << endl;
+    file.close();
+}
+
+// 100. Copy File Content
+void code100() {
+    ifstream source("demo.txt");
+    ofstream dest("copy.txt");
+    string line;
+
+    while(getline(source, line))
+        dest << line << endl;
+
+    source.close();
+    dest.close();
+
+    cout << "File copied" << endl;
+}
+
+int main() {
+    // Call any function here
+    code81();
+    return 0;
+}
+```
+# C++ Codes File (81–100)
+
+```cpp id="q7n4lm"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// 81. Function to Find Minimum
+int minimum(int a, int b) {
+    return (a < b) ? a : b;
+}
+void code81() {
+    cout << "Minimum = " << minimum(15, 30) << endl;
+}
+
+// 82. Function to Check Prime
+bool isPrime(int n) {
+    if(n < 2) return false;
+    for(int i = 2; i < n; i++) {
+        if(n % i == 0) return false;
+    }
+    return true;
+}
+void code82() {
+    cout << (isPrime(7) ? "Prime" : "Not Prime") << endl;
+}
+
+// 83. Function to Reverse Number
+int reverseNum(int n) {
+    int rev = 0;
+    while(n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    return rev;
+}
+void code83() {
+    cout << "Reverse = " << reverseNum(1234) << endl;
+}
+
+// 84. Recursive Factorial
+int factorial(int n) {
+    if(n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+}
+void code84() {
+    cout << "Factorial = " << factorial(5) << endl;
+}
+
+// 85. Recursive Fibonacci
+int fibonacci(int n) {
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+void code85() {
+    for(int i = 0; i < 7; i++)
+        cout << fibonacci(i) << " ";
+    cout << endl;
+}
+
+// 86. Pointer Example
+void code86() {
+    int x = 10;
+    int *ptr = &x;
+
+    cout << "Value = " << x << endl;
+    cout << "Address = " << ptr << endl;
+    cout << "Using Pointer = " << *ptr << endl;
+}
+
+// 87. Pointer Addition
+void code87() {
+    int a = 10, b = 20;
+    int *p1 = &a, *p2 = &b;
+
+    cout << "Sum = " << *p1 + *p2 << endl;
+}
+
+// 88. Swap Using Pointers
+void swapNum(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void code88() {
+    int x = 5, y = 10;
+    swapNum(&x, &y);
+    cout << "x = " << x << ", y = " << y << endl;
+}
+
+// 89. Array Using Pointer
+void code89() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    for(int i = 0; i < 5; i++)
+        cout << *(ptr + i) << " ";
+    cout << endl;
+}
+
+// 90. Dynamic Memory Allocation
+void code90() {
+    int *ptr = new int;
+    *ptr = 25;
+
+    cout << "Value = " << *ptr << endl;
+    delete ptr;
+}
+
+// 91. Structure Example
+struct Student {
+    int id;
+    string name;
+};
+
+void code91() {
+    Student s;
+    s.id = 101;
+    s.name = "Ankit";
+
+    cout << "ID = " << s.id << endl;
+    cout << "Name = " << s.name << endl;
+}
+
+// 92. Array of Structures
+struct Book {
+    int id;
+    string title;
+};
+
+void code92() {
+    Book b[2];
+
+    b[0].id = 1;
+    b[0].title = "C++";
+
+    b[1].id = 2;
+    b[1].title = "DSA";
+
+    for(int i = 0; i < 2; i++) {
+        cout << b[i].id << " " << b[i].title << endl;
+    }
+}
+
+// 93. Nested Structure
+struct Address {
+    string city;
+};
+
+struct Person {
+    string name;
+    Address addr;
+};
+
+void code93() {
+    Person p;
+    p.name = "Ankit";
+    p.addr.city = "Hisar";
+
+    cout << p.name << " lives in " << p.addr.city << endl;
+}
+
+// 94. Structure with Function
+struct Rectangle {
+    int length, width;
+};
+
+int area(Rectangle r) {
+    return r.length * r.width;
+}
+
+void code94() {
+    Rectangle r = {5, 4};
+    cout << "Area = " << area(r) << endl;
+}
+
+// 95. Pointer to Structure
+struct Employee {
+    int id;
+    string name;
+};
+
+void code95() {
+    Employee e = {1, "Rahul"};
+    Employee *ptr = &e;
+
+    cout << ptr->id << " " << ptr->name << endl;
+}
+
+// 96. Write to File
+void code96() {
+    ofstream file("demo.txt");
+    file << "Hello File";
+    file.close();
+    cout << "Data written to file" << endl;
+}
+
+// 97. Read from File
+void code97() {
+    string data;
+    ifstream file("demo.txt");
+
+    getline(file, data);
+    cout << data << endl;
+
+    file.close();
+}
+
+// 98. Append to File
+void code98() {
+    ofstream file("demo.txt", ios::app);
+    file << "\nAppended Text";
+    file.close();
+
+    cout << "Data appended" << endl;
+}
+
+// 99. Count Characters in File
+void code99() {
+    ifstream file("demo.txt");
+    char ch;
+    int count = 0;
+
+    while(file.get(ch))
+        count++;
+
+    cout << "Characters = " << count << endl;
+    file.close();
+}
+
+// 100. Copy File Content
+void code100() {
+    ifstream source("demo.txt");
+    ofstream dest("copy.txt");
+    string line;
+
+    while(getline(source, line))
+        dest << line << endl;
+
+    source.close();
+    dest.close();
+
+    cout << "File copied" << endl;
+}
+
+int main() {
+    // Call any function here
+    code81();
+    return 0;
+}
+```
+# C++ Codes File (81–100)
+
+```cpp id="q7n4lm"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// 81. Function to Find Minimum
+int minimum(int a, int b) {
+    return (a < b) ? a : b;
+}
+void code81() {
+    cout << "Minimum = " << minimum(15, 30) << endl;
+}
+
+// 82. Function to Check Prime
+bool isPrime(int n) {
+    if(n < 2) return false;
+    for(int i = 2; i < n; i++) {
+        if(n % i == 0) return false;
+    }
+    return true;
+}
+void code82() {
+    cout << (isPrime(7) ? "Prime" : "Not Prime") << endl;
+}
+
+// 83. Function to Reverse Number
+int reverseNum(int n) {
+    int rev = 0;
+    while(n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    return rev;
+}
+void code83() {
+    cout << "Reverse = " << reverseNum(1234) << endl;
+}
+
+// 84. Recursive Factorial
+int factorial(int n) {
+    if(n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+}
+void code84() {
+    cout << "Factorial = " << factorial(5) << endl;
+}
+
+// 85. Recursive Fibonacci
+int fibonacci(int n) {
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+void code85() {
+    for(int i = 0; i < 7; i++)
+        cout << fibonacci(i) << " ";
+    cout << endl;
+}
+
+// 86. Pointer Example
+void code86() {
+    int x = 10;
+    int *ptr = &x;
+
+    cout << "Value = " << x << endl;
+    cout << "Address = " << ptr << endl;
+    cout << "Using Pointer = " << *ptr << endl;
+}
+
+// 87. Pointer Addition
+void code87() {
+    int a = 10, b = 20;
+    int *p1 = &a, *p2 = &b;
+
+    cout << "Sum = " << *p1 + *p2 << endl;
+}
+
+// 88. Swap Using Pointers
+void swapNum(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void code88() {
+    int x = 5, y = 10;
+    swapNum(&x, &y);
+    cout << "x = " << x << ", y = " << y << endl;
+}
+
+// 89. Array Using Pointer
+void code89() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    for(int i = 0; i < 5; i++)
+        cout << *(ptr + i) << " ";
+    cout << endl;
+}
+
+// 90. Dynamic Memory Allocation
+void code90() {
+    int *ptr = new int;
+    *ptr = 25;
+
+    cout << "Value = " << *ptr << endl;
+    delete ptr;
+}
+
+// 91. Structure Example
+struct Student {
+    int id;
+    string name;
+};
+
+void code91() {
+    Student s;
+    s.id = 101;
+    s.name = "Ankit";
+
+    cout << "ID = " << s.id << endl;
+    cout << "Name = " << s.name << endl;
+}
+
+// 92. Array of Structures
+struct Book {
+    int id;
+    string title;
+};
+
+void code92() {
+    Book b[2];
+
+    b[0].id = 1;
+    b[0].title = "C++";
+
+    b[1].id = 2;
+    b[1].title = "DSA";
+
+    for(int i = 0; i < 2; i++) {
+        cout << b[i].id << " " << b[i].title << endl;
+    }
+}
+
+// 93. Nested Structure
+struct Address {
+    string city;
+};
+
+struct Person {
+    string name;
+    Address addr;
+};
+
+void code93() {
+    Person p;
+    p.name = "Ankit";
+    p.addr.city = "Hisar";
+
+    cout << p.name << " lives in " << p.addr.city << endl;
+}
+
+// 94. Structure with Function
+struct Rectangle {
+    int length, width;
+};
+
+int area(Rectangle r) {
+    return r.length * r.width;
+}
+
+void code94() {
+    Rectangle r = {5, 4};
+    cout << "Area = " << area(r) << endl;
+}
+
+// 95. Pointer to Structure
+struct Employee {
+    int id;
+    string name;
+};
+
+void code95() {
+    Employee e = {1, "Rahul"};
+    Employee *ptr = &e;
+
+    cout << ptr->id << " " << ptr->name << endl;
+}
+
+// 96. Write to File
+void code96() {
+    ofstream file("demo.txt");
+    file << "Hello File";
+    file.close();
+    cout << "Data written to file" << endl;
+}
+
+// 97. Read from File
+void code97() {
+    string data;
+    ifstream file("demo.txt");
+
+    getline(file, data);
+    cout << data << endl;
+
+    file.close();
+}
+
+// 98. Append to File
+void code98() {
+    ofstream file("demo.txt", ios::app);
+    file << "\nAppended Text";
+    file.close();
+
+    cout << "Data appended" << endl;
+}
+
+// 99. Count Characters in File
+void code99() {
+    ifstream file("demo.txt");
+    char ch;
+    int count = 0;
+
+    while(file.get(ch))
+        count++;
+
+    cout << "Characters = " << count << endl;
+    file.close();
+}
+
+// 100. Copy File Content
+void code100() {
+    ifstream source("demo.txt");
+    ofstream dest("copy.txt");
+    string line;
+
+    while(getline(source, line))
+        dest << line << endl;
+
+    source.close();
+    dest.close();
+
+    cout << "File copied" << endl;
+}
+
+int main() {
+    // Call any function here
+    code81();
+    return 0;
+}
+```
+# C++ Codes File (81–100)
+
+```cpp id="q7n4lm"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// 81. Function to Find Minimum
+int minimum(int a, int b) {
+    return (a < b) ? a : b;
+}
+void code81() {
+    cout << "Minimum = " << minimum(15, 30) << endl;
+}
+
+// 82. Function to Check Prime
+bool isPrime(int n) {
+    if(n < 2) return false;
+    for(int i = 2; i < n; i++) {
+        if(n % i == 0) return false;
+    }
+    return true;
+}
+void code82() {
+    cout << (isPrime(7) ? "Prime" : "Not Prime") << endl;
+}
+
+// 83. Function to Reverse Number
+int reverseNum(int n) {
+    int rev = 0;
+    while(n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    return rev;
+}
+void code83() {
+    cout << "Reverse = " << reverseNum(1234) << endl;
+}
+
+// 84. Recursive Factorial
+int factorial(int n) {
+    if(n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+}
+void code84() {
+    cout << "Factorial = " << factorial(5) << endl;
+}
+
+// 85. Recursive Fibonacci
+int fibonacci(int n) {
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+void code85() {
+    for(int i = 0; i < 7; i++)
+        cout << fibonacci(i) << " ";
+    cout << endl;
+}
+
+// 86. Pointer Example
+void code86() {
+    int x = 10;
+    int *ptr = &x;
+
+    cout << "Value = " << x << endl;
+    cout << "Address = " << ptr << endl;
+    cout << "Using Pointer = " << *ptr << endl;
+}
+
+// 87. Pointer Addition
+void code87() {
+    int a = 10, b = 20;
+    int *p1 = &a, *p2 = &b;
+
+    cout << "Sum = " << *p1 + *p2 << endl;
+}
+
+// 88. Swap Using Pointers
+void swapNum(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void code88() {
+    int x = 5, y = 10;
+    swapNum(&x, &y);
+    cout << "x = " << x << ", y = " << y << endl;
+}
+
+// 89. Array Using Pointer
+void code89() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    for(int i = 0; i < 5; i++)
+        cout << *(ptr + i) << " ";
+    cout << endl;
+}
+
+// 90. Dynamic Memory Allocation
+void code90() {
+    int *ptr = new int;
+    *ptr = 25;
+
+    cout << "Value = " << *ptr << endl;
+    delete ptr;
+}
+
+// 91. Structure Example
+struct Student {
+    int id;
+    string name;
+};
+
+void code91() {
+    Student s;
+    s.id = 101;
+    s.name = "Ankit";
+
+    cout << "ID = " << s.id << endl;
+    cout << "Name = " << s.name << endl;
+}
+
+// 92. Array of Structures
+struct Book {
+    int id;
+    string title;
+};
+
+void code92() {
+    Book b[2];
+
+    b[0].id = 1;
+    b[0].title = "C++";
+
+    b[1].id = 2;
+    b[1].title = "DSA";
+
+    for(int i = 0; i < 2; i++) {
+        cout << b[i].id << " " << b[i].title << endl;
+    }
+}
+
+// 93. Nested Structure
+struct Address {
+    string city;
+};
+
+struct Person {
+    string name;
+    Address addr;
+};
+
+void code93() {
+    Person p;
+    p.name = "Ankit";
+    p.addr.city = "Hisar";
+
+    cout << p.name << " lives in " << p.addr.city << endl;
+}
+
+// 94. Structure with Function
+struct Rectangle {
+    int length, width;
+};
+
+int area(Rectangle r) {
+    return r.length * r.width;
+}
+
+void code94() {
+    Rectangle r = {5, 4};
+    cout << "Area = " << area(r) << endl;
+}
+
+// 95. Pointer to Structure
+struct Employee {
+    int id;
+    string name;
+};
+
+void code95() {
+    Employee e = {1, "Rahul"};
+    Employee *ptr = &e;
+
+    cout << ptr->id << " " << ptr->name << endl;
+}
+
+// 96. Write to File
+void code96() {
+    ofstream file("demo.txt");
+    file << "Hello File";
+    file.close();
+    cout << "Data written to file" << endl;
+}
+
+// 97. Read from File
+void code97() {
+    string data;
+    ifstream file("demo.txt");
+
+    getline(file, data);
+    cout << data << endl;
+
+    file.close();
+}
+
+// 98. Append to File
+void code98() {
+    ofstream file("demo.txt", ios::app);
+    file << "\nAppended Text";
+    file.close();
+
+    cout << "Data appended" << endl;
+}
+
+// 99. Count Characters in File
+void code99() {
+    ifstream file("demo.txt");
+    char ch;
+    int count = 0;
+
+    while(file.get(ch))
+        count++;
+
+    cout << "Characters = " << count << endl;
+    file.close();
+}
+
+// 100. Copy File Content
+void code100() {
+    ifstream source("demo.txt");
+    ofstream dest("copy.txt");
+    string line;
+
+    while(getline(source, line))
+        dest << line << endl;
+
+    source.close();
+    dest.close();
+
+    cout << "File copied" << endl;
+}
+
+int main() {
+    // Call any function here
+    code81();
+    return 0;
+}
+```
+# C++ Codes File (81–100)
+
+```cpp id="q7n4lm"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// 81. Function to Find Minimum
+int minimum(int a, int b) {
+    return (a < b) ? a : b;
+}
+void code81() {
+    cout << "Minimum = " << minimum(15, 30) << endl;
+}
+
+// 82. Function to Check Prime
+bool isPrime(int n) {
+    if(n < 2) return false;
+    for(int i = 2; i < n; i++) {
+        if(n % i == 0) return false;
+    }
+    return true;
+}
+void code82() {
+    cout << (isPrime(7) ? "Prime" : "Not Prime") << endl;
+}
+
+// 83. Function to Reverse Number
+int reverseNum(int n) {
+    int rev = 0;
+    while(n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    return rev;
+}
+void code83() {
+    cout << "Reverse = " << reverseNum(1234) << endl;
+}
+
+// 84. Recursive Factorial
+int factorial(int n) {
+    if(n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+}
+void code84() {
+    cout << "Factorial = " << factorial(5) << endl;
+}
+
+// 85. Recursive Fibonacci
+int fibonacci(int n) {
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+void code85() {
+    for(int i = 0; i < 7; i++)
+        cout << fibonacci(i) << " ";
+    cout << endl;
+}
+
+// 86. Pointer Example
+void code86() {
+    int x = 10;
+    int *ptr = &x;
+
+    cout << "Value = " << x << endl;
+    cout << "Address = " << ptr << endl;
+    cout << "Using Pointer = " << *ptr << endl;
+}
+
+// 87. Pointer Addition
+void code87() {
+    int a = 10, b = 20;
+    int *p1 = &a, *p2 = &b;
+
+    cout << "Sum = " << *p1 + *p2 << endl;
+}
+
+// 88. Swap Using Pointers
+void swapNum(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void code88() {
+    int x = 5, y = 10;
+    swapNum(&x, &y);
+    cout << "x = " << x << ", y = " << y << endl;
+}
+
+// 89. Array Using Pointer
+void code89() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    for(int i = 0; i < 5; i++)
+        cout << *(ptr + i) << " ";
+    cout << endl;
+}
+
+// 90. Dynamic Memory Allocation
+void code90() {
+    int *ptr = new int;
+    *ptr = 25;
+
+    cout << "Value = " << *ptr << endl;
+    delete ptr;
+}
+
+// 91. Structure Example
+struct Student {
+    int id;
+    string name;
+};
+
+void code91() {
+    Student s;
+    s.id = 101;
+    s.name = "Ankit";
+
+    cout << "ID = " << s.id << endl;
+    cout << "Name = " << s.name << endl;
+}
+
+// 92. Array of Structures
+struct Book {
+    int id;
+    string title;
+};
+
+void code92() {
+    Book b[2];
+
+    b[0].id = 1;
+    b[0].title = "C++";
+
+    b[1].id = 2;
+    b[1].title = "DSA";
+
+    for(int i = 0; i < 2; i++) {
+        cout << b[i].id << " " << b[i].title << endl;
+    }
+}
+
+// 93. Nested Structure
+struct Address {
+    string city;
+};
+
+struct Person {
+    string name;
+    Address addr;
+};
+
+void code93() {
+    Person p;
+    p.name = "Ankit";
+    p.addr.city = "Hisar";
+
+    cout << p.name << " lives in " << p.addr.city << endl;
+}
+
+// 94. Structure with Function
+struct Rectangle {
+    int length, width;
+};
+
+int area(Rectangle r) {
+    return r.length * r.width;
+}
+
+void code94() {
+    Rectangle r = {5, 4};
+    cout << "Area = " << area(r) << endl;
+}
+
+// 95. Pointer to Structure
+struct Employee {
+    int id;
+    string name;
+};
+
+void code95() {
+    Employee e = {1, "Rahul"};
+    Employee *ptr = &e;
+
+    cout << ptr->id << " " << ptr->name << endl;
+}
+
+// 96. Write to File
+void code96() {
+    ofstream file("demo.txt");
+    file << "Hello File";
+    file.close();
+    cout << "Data written to file" << endl;
+}
+
+// 97. Read from File
+void code97() {
+    string data;
+    ifstream file("demo.txt");
+
+    getline(file, data);
+    cout << data << endl;
+
+    file.close();
+}
+
+// 98. Append to File
+void code98() {
+    ofstream file("demo.txt", ios::app);
+    file << "\nAppended Text";
+    file.close();
+
+    cout << "Data appended" << endl;
+}
+
+// 99. Count Characters in File
+void code99() {
+    ifstream file("demo.txt");
+    char ch;
+    int count = 0;
+
+    while(file.get(ch))
+        count++;
+
+    cout << "Characters = " << count << endl;
+    file.close();
+}
+
+// 100. Copy File Content
+void code100() {
+    ifstream source("demo.txt");
+    ofstream dest("copy.txt");
+    string line;
+
+    while(getline(source, line))
+        dest << line << endl;
+
+    source.close();
+    dest.close();
+
+    cout << "File copied" << endl;
+}
+
+int main() {
+    // Call any function here
+    code81();
+    return 0;
+}
+```
+# C++ Codes File (81–100)
+
+```cpp id="q7n4lm"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// 81. Function to Find Minimum
+int minimum(int a, int b) {
+    return (a < b) ? a : b;
+}
+void code81() {
+    cout << "Minimum = " << minimum(15, 30) << endl;
+}
+
+// 82. Function to Check Prime
+bool isPrime(int n) {
+    if(n < 2) return false;
+    for(int i = 2; i < n; i++) {
+        if(n % i == 0) return false;
+    }
+    return true;
+}
+void code82() {
+    cout << (isPrime(7) ? "Prime" : "Not Prime") << endl;
+}
+
+// 83. Function to Reverse Number
+int reverseNum(int n) {
+    int rev = 0;
+    while(n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    return rev;
+}
+void code83() {
+    cout << "Reverse = " << reverseNum(1234) << endl;
+}
+
+// 84. Recursive Factorial
+int factorial(int n) {
+    if(n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+}
+void code84() {
+    cout << "Factorial = " << factorial(5) << endl;
+}
+
+// 85. Recursive Fibonacci
+int fibonacci(int n) {
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+void code85() {
+    for(int i = 0; i < 7; i++)
+        cout << fibonacci(i) << " ";
+    cout << endl;
+}
+
+// 86. Pointer Example
+void code86() {
+    int x = 10;
+    int *ptr = &x;
+
+    cout << "Value = " << x << endl;
+    cout << "Address = " << ptr << endl;
+    cout << "Using Pointer = " << *ptr << endl;
+}
+
+// 87. Pointer Addition
+void code87() {
+    int a = 10, b = 20;
+    int *p1 = &a, *p2 = &b;
+
+    cout << "Sum = " << *p1 + *p2 << endl;
+}
+
+// 88. Swap Using Pointers
+void swapNum(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void code88() {
+    int x = 5, y = 10;
+    swapNum(&x, &y);
+    cout << "x = " << x << ", y = " << y << endl;
+}
+
+// 89. Array Using Pointer
+void code89() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *ptr = arr;
+
+    for(int i = 0; i < 5; i++)
+        cout << *(ptr + i) << " ";
+    cout << endl;
+}
+
+// 90. Dynamic Memory Allocation
+void code90() {
+    int *ptr = new int;
+    *ptr = 25;
+
+    cout << "Value = " << *ptr << endl;
+    delete ptr;
+}
+
+// 91. Structure Example
+struct Student {
+    int id;
+    string name;
+};
+
+void code91() {
+    Student s;
+    s.id = 101;
+    s.name = "Ankit";
+
+    cout << "ID = " << s.id << endl;
+    cout << "Name = " << s.name << endl;
+}
+
+// 92. Array of Structures
+struct Book {
+    int id;
+    string title;
+};
+
+void code92() {
+    Book b[2];
+
+    b[0].id = 1;
+    b[0].title = "C++";
+
+    b[1].id = 2;
+    b[1].title = "DSA";
+
+    for(int i = 0; i < 2; i++) {
+        cout << b[i].id << " " << b[i].title << endl;
+    }
+}
+
+// 93. Nested Structure
+struct Address {
+    string city;
+};
+
+struct Person {
+    string name;
+    Address addr;
+};
+
+void code93() {
+    Person p;
+    p.name = "Ankit";
+    p.addr.city = "Hisar";
+
+    cout << p.name << " lives in " << p.addr.city << endl;
+}
+
+// 94. Structure with Function
+struct Rectangle {
+    int length, width;
+};
+
+int area(Rectangle r) {
+    return r.length * r.width;
+}
+
+void code94() {
+    Rectangle r = {5, 4};
+    cout << "Area = " << area(r) << endl;
+}
+
+// 95. Pointer to Structure
+struct Employee {
+    int id;
+    string name;
+};
+
+void code95() {
+    Employee e = {1, "Rahul"};
+    Employee *ptr = &e;
+
+    cout << ptr->id << " " << ptr->name << endl;
+}
+
+// 96. Write to File
+void code96() {
+    ofstream file("demo.txt");
+    file << "Hello File";
+    file.close();
+    cout << "Data written to file" << endl;
+}
+
+// 97. Read from File
+void code97() {
+    string data;
+    ifstream file("demo.txt");
+
+    getline(file, data);
+    cout << data << endl;
+
+    file.close();
+}
+
+// 98. Append to File
+void code98() {
+    ofstream file("demo.txt", ios::app);
+    file << "\nAppended Text";
+    file.close();
+
+    cout << "Data appended" << endl;
+}
+
+// 99. Count Characters in File
+void code99() {
+    ifstream file("demo.txt");
+    char ch;
+    int count = 0;
+
+    while(file.get(ch))
+        count++;
+
+    cout << "Characters = " << count << endl;
+    file.close();
+}
+
+// 100. Copy File Content
+void code100() {
+    ifstream source("demo.txt");
+    ofstream dest("copy.txt");
+    string line;
+
+    while(getline(source, line))
+        dest << line << endl;
+
+    source.close();
+    dest.close();
+
+    cout << "File copied" << endl;
+}
+
+int main() {
+    // Call any function here
+    code81();
+    return 0;
+}
+```
+v
